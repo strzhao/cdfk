@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var fs = require('fs')
 var shell = require('shelljs')
 var argv = require('yargs').option('p', {
