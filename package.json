@@ -1,0 +1,18 @@
+{
+  "name": "cdfk",
+  "version": "1.0.0",
+  "description": "冲顶大会提词器",
+  "bin": {
+    "cdfk": "cdfk.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "StringZhao",
+  "license": "ISC",
+  "dependencies": {
+    "shelljs": "^0.7.8",
+    "yargs": "^10.1.1"
+  }
+}
