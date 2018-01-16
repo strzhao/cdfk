@@ -1,6 +1,6 @@
 {
   "name": "cdfk",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "冲顶大会提词器",
   "bin": {
     "cdfk": "./bin/cdfk.js"

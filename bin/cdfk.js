@@ -38,13 +38,21 @@ fs.watch(basePath, {recursive: true }, function(event, path) {
 		if (err) {
 			return
 		}
+		var jsonString = result.toString()		
 		if (argv.verbose) {
-			console.log(result.toString())
-		}		
+			if (path.indexOf('img') == 0) {
+				return
+			}
+			console.log(jsonString)
+		}				
+		if (jsonString.indexOf('showQuestion') == -1) {
+			return
+		}
+		jsonString = jsonString.replace(/\d+:\d+/, '')
 
 		var jsonResult;
 		try {
-			jsonResult = JSON.parse(result.toString())
+			jsonResult = JSON.parse(jsonString)
 		}
 		catch (err) {
 			return
@@ -57,13 +65,13 @@ fs.watch(basePath, {recursive: true }, function(event, path) {
 	    desc = desc.substring(desc.indexOf('.') + 1, desc.length - desc.indexOf('.'))
 	    var options = JSON.parse(obj.options)
 
+		console.log("\n")
 	    console.log(desc)
 	    var content = ""
 	    options.forEach(function(item, idx) {    	
 	    	console.log(idx + 1 + "  " + item)
 	    	content += idx + 1 + "  " + item + " "
-	    })
-   	    console.log("\n\n")
+	    })   	    
 
 	    if (argv.auto) {
 		    shell.exec('open -a /Applications/Safari.app https://www.baidu.com/s\?wd\=' + encodeURI(desc))
